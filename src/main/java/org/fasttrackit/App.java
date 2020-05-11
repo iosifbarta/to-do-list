@@ -1,12 +1,14 @@
 package org.fasttrackit;
 
 
+import org.fasttrackit.domain.Task;
 import org.fasttrackit.persistance.TaskRepository;
 import org.fasttrackit.transfer.CreateTaskRequest;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 
 public class App
 {
@@ -17,5 +19,12 @@ public class App
 
         TaskRepository taskRepository = new TaskRepository();
         taskRepository.createTask(request);
+
+        List<Task> tasks = taskRepository.getTask();
+        System.out.println(tasks);
+//
+//        UpdateTaskRequest updateTaskRequest = new UpdateTaskRequest();
+//        updateTaskRequest.setDone(true);
+//        taskRepository.deleteTask(1);
     }
 }
