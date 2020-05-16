@@ -59,6 +59,7 @@ public class TaskRepository {
 
         try (Connection connection = DatabaseConfiguration.getConnection();
              Statement statement = connection.createStatement()){
+
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()){
