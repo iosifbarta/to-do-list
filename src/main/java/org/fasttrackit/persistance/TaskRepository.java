@@ -64,13 +64,12 @@ public class TaskRepository {
 
             while (resultSet.next()){
                 Task task = new Task();
-                resultSet.getLong("id");
+                task.setId(resultSet.getLong("id"));
                 task.setDescription(resultSet.getString("description"));
                 Date deadlineAsSQLDate = resultSet.getDate("deadline");
                 task.setDeadline(deadlineAsSQLDate.toLocalDate());
 
                 task.setDone(resultSet.getBoolean("done"));
-
                 tasks.add(task);
             }
         }
